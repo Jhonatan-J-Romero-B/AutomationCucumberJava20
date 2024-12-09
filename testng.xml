@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/JhonatanRomero/Work/Repositories/AutomationCucumberJava20">
+        <classes>
+            <class name="selenium.Newman">
+                <methods>
+                    <include name="Newman01"/>
+                    <include name="GenerateExcel"/>
+                </methods>
+            </class>
+            <class name="selenium.Tests01">
+                <methods>
+                    <include name="Test01"/>
+                    <include name="Test02"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
