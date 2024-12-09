@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "2fcb9d71-be6a-4de7-bd0f-cd4c10bea110",
+		"name": "ReqRes.io",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17242765"
+	},
+	"item": [
+		{
+			"name": "ListUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    var jsonResponse = pm.response.json();\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: SI', () => true);\r",
+							"}catch(e){\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: NO', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    pm.test('02 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () =>{\r",
+							"        pm.expect(pm.response.code).equal(parseInt(pm.collectionVariables.get('Status200')), 'Status Response obtenido: ' + pm.response.code + '');\r",
+							"    });\r",
+							"}catch(e){\r",
+							"    pm.test('01 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"pm.collectionVariables.set('page', jsonResponse.page);\r",
+							"pm.collectionVariables.set('per_page', jsonResponse.per_page);\r",
+							"pm.collectionVariables.set('total', jsonResponse.total);\r",
+							"pm.collectionVariables.set('total_pages', jsonResponse.total_pages);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{reqres}}/api/users",
+					"host": [
+						"{{reqres}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "pageTest",
+							"value": "https://reqres.in/",
+							"description": "Test Page",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SingleUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    var jsonResponse = pm.response.json();\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: SI', () => true);\r",
+							"}catch(e){\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: NO', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    pm.test('02 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () =>{\r",
+							"        pm.expect(pm.response.code).equal(parseInt(pm.collectionVariables.get('Status200')), 'Status Response obtenido: ' + pm.response.code + '');\r",
+							"    });\r",
+							"}catch(e){\r",
+							"    pm.test('01 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{reqres}}/api/users?page={{page}}",
+					"host": [
+						"{{reqres}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "pageTest",
+							"value": "https://reqres.in/",
+							"description": "Test Page",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "{{page}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListUnknow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    var jsonResponse = pm.response.json();\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: SI', () => true);\r",
+							"}catch(e){\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: NO', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    pm.test('02 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () =>{\r",
+							"        pm.expect(pm.response.code).equal(parseInt(pm.collectionVariables.get('Status200')), 'Status Response obtenido: ' + pm.response.code + '');\r",
+							"    });\r",
+							"}catch(e){\r",
+							"    pm.test('01 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{reqres}}/api/unknown",
+					"host": [
+						"{{reqres}}"
+					],
+					"path": [
+						"api",
+						"unknown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SingleUnknow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    var jsonResponse = pm.response.json();\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: SI', () => true);\r",
+							"}catch(e){\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: NO', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    pm.test('02 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () =>{\r",
+							"        pm.expect(pm.response.code).equal(parseInt(pm.collectionVariables.get('Status200')), 'Status Response obtenido: ' + pm.response.code + '');\r",
+							"    });\r",
+							"}catch(e){\r",
+							"    pm.test('01 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{reqres}}/api/unknown/2",
+					"host": [
+						"{{reqres}}"
+					],
+					"path": [
+						"api",
+						"unknown",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    var jsonResponse = pm.response.json();\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: SI', () => true);\r",
+							"}catch(e){\r",
+							"    pm.test('01 - ResponseBody convertido en objeto JSON correctamente: NO', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////\r",
+							"try{\r",
+							"    pm.test('02 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () =>{\r",
+							"        pm.expect(pm.response.code).equal(parseInt(pm.collectionVariables.get('Status200')), 'Status Response obtenido: ' + pm.response.code + '');\r",
+							"    });\r",
+							"}catch(e){\r",
+							"    pm.test('01 - Status Response: Esperado ' + pm.collectionVariables.get('Status200') + ' ---> Obtenido ' + pm.response.code + '', () => {throw new Error(e.message)});\r",
+							"}\r",
+							"////////////////////////////////////////////////////////////////////////////////////////////////////////"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"pistol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{reqres}}/api/register",
+					"host": [
+						"{{reqres}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "reqres",
+			"value": "https://reqres.in",
+			"type": "string"
+		},
+		{
+			"key": "Status200",
+			"value": "200",
+			"type": "string"
+		},
+		{
+			"key": "page",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "per_page",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "total",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "total_pages",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
